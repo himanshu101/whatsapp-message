@@ -31,6 +31,10 @@ class GroupMembers(models.Model):
 
 
 class GroupMessage(models.Model):
+
+    class Meta:
+        ordering = ['-id']
+
     sender = models.ForeignKey(User, on_delete=models.CASCADE, related_name='group_sender')
     group = models.ForeignKey(Group, on_delete=models.CASCADE, related_name='group_receiver')
     message = models.TextField(null=False)

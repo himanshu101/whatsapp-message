@@ -32,6 +32,7 @@ class GroupMessageList(generics.ListAPIView):
 class MessageList(generics.ListCreateAPIView):
 
     serializer_class = MessageSerializer
+    pagination_class = CustomPagination
 
     def get_queryset(self):
         receiver_id = self.kwargs.get('receiver_id')
